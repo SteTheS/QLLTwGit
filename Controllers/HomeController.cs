@@ -18,6 +18,7 @@ namespace QLlaptop.Controllers
             return data.SanPhams.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
         }
 
+        //Xuat list loai
         private List<LoaiSanPham> GetLoai()
         {
             return data.LoaiSanPhams.OrderBy(a => a.Tenloai).ToList();
@@ -28,7 +29,8 @@ namespace QLlaptop.Controllers
             var loai = GetLoai();
             return PartialView(loai);
         }
-
+        
+        //Xuat list Brand
         private List<ThuongHieu> GetBrand()
         {
             return data.ThuongHieus.OrderBy(a => a.Tenthuonghieu).ToList();
@@ -40,12 +42,15 @@ namespace QLlaptop.Controllers
             return PartialView(br);
         }
 
+        //Lay 5 laptop gaming moi nhat
+
+
         public ActionResult Index(int ? page )
         {
             int pageSize = 5;
             int pageNum = (page ?? 1);
-            //Lay 5 laptop moi nhat
-            var NewProc = GetNewProc(5);
+            //Lay 10 laptop moi nhat
+            var NewProc = GetNewProc(10);
             return View(NewProc.ToPagedList(pageNum,pageSize));
         }
 

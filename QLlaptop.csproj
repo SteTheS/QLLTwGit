@@ -232,6 +232,9 @@
     <Content Include="Content\images\All\Acer Nitro 5 AN515 56 51N4_2.png" />
     <Content Include="Content\images\All\Acer Nitro 5 AN515 56 51N4_3.png" />
     <Content Include="Content\images\All\Asus D515DA EJ711T.png" />
+    <Content Include="Content\images\All\Asus D515DA EJ711T_1.png" />
+    <Content Include="Content\images\All\Asus D515DA EJ711T_2.png" />
+    <Content Include="Content\images\All\Asus D515DA EJ711T_3.png" />
     <Content Include="Content\images\All\Asus ROG Strix G15 G513QC HN015T.png" />
     <Content Include="Content\images\All\Asus ROG Strix G15 G513QC HN015T_1.png" />
     <Content Include="Content\images\All\Asus ROG Strix G15 G513QC HN015T_2.png" />
@@ -277,7 +280,6 @@
     <Content Include="Content\images\All\Lenovo IdeaPad Gaming 3 15ARH05 82EY00JXVN.png" />
     <Content Include="Content\images\All\Lenovo IdeaPad Slim 3 14ITL6 82H7003UVN.png" />
     <Content Include="Content\images\All\Lenovo ThinkBook 14 IIL 20SL00HQVN.png" />
-    <Content Include="Content\images\All\logo.png" />
     <Content Include="Content\images\All\MSI GE66 Raider 10SFS 474VN.png" />
     <Content Include="Content\images\All\MSI GE66 Raider 10SFS 474VN_1.png" />
     <Content Include="Content\images\All\MSI GF75 Thin 10SCXR 013VN.png" />

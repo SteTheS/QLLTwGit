@@ -75,6 +75,14 @@
       <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.ThuongHieu" Member="ThuongHieus">
+    <Type Name="ThuongHieu">
+      <Column Name="Mathuonghieu" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tenthuonghieu" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Gioithieu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="ThuongHieu_SanPham" Member="SanPhams" ThisKey="Mathuonghieu" OtherKey="Mathuonghieu" Type="SanPham" />
+    </Type>
+  </Table>
   <Table Name="dbo.SanPham" Member="SanPhams">
     <Type Name="SanPham">
       <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -85,21 +93,28 @@
       <Column Name="ImageSP_1" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="ImageSP_2" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="ImageSP_3" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="ThongtinSP" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CPU" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="RAM" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Bonho" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="GPU" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Manhinh" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Conggiaotiep" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Audio" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LAN" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="WIFI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Bluetooth" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Webcam" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HDH" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Pin" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Trongluong" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Mausac" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Kichthuoc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="Soluongton" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Giatien" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="Ngaycapnhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="SanPham_CTDonHang" Member="CTDonHangs" ThisKey="MaSP" OtherKey="MaSP" Type="CTDonHang" />
       <Association Name="LoaiSanPham_SanPham" Member="LoaiSanPham" ThisKey="Maloai" OtherKey="Maloai" Type="LoaiSanPham" IsForeignKey="true" />
       <Association Name="ThuongHieu_SanPham" Member="ThuongHieu" ThisKey="Mathuonghieu" OtherKey="Mathuonghieu" Type="ThuongHieu" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ThuongHieu" Member="ThuongHieus">
-    <Type Name="ThuongHieu">
-      <Column Name="Mathuonghieu" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Tenthuonghieu" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Gioithieu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Association Name="ThuongHieu_SanPham" Member="SanPhams" ThisKey="Mathuonghieu" OtherKey="Mathuonghieu" Type="SanPham" />
     </Type>
   </Table>
 </Database>
