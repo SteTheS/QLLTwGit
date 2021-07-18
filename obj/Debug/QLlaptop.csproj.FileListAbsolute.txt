@@ -251,6 +251,7 @@ C:\Users\ASUS\Desktop\QLlaptop\bin\PagedList.dll
 C:\Users\ASUS\Desktop\QLlaptop\bin\PagedList.Mvc.dll
 C:\Users\ASUS\Desktop\QLlaptop\bin\PagedList.xml
 C:\Users\ASUS\Desktop\QLlaptop\bin\PagedList.Mvc.xml
+<<<<<<< HEAD
 E:\Do_an_Web\QLlaptop_1\QLLTwGit\bin\QLlaptop.dll.config
 E:\Do_an_Web\QLlaptop_1\QLLTwGit\bin\QLlaptop.dll
 E:\Do_an_Web\QLlaptop_1\QLLTwGit\bin\QLlaptop.pdb
@@ -338,3 +339,9 @@ E:\Do_an_Web\QLlaptop_1\QLLTwGit\obj\Debug\QLlaptop.csproj.CoreCompileInputs.cac
 E:\Do_an_Web\QLlaptop_1\QLLTwGit\obj\Debug\QLlaptop.csproj.CopyComplete
 E:\Do_an_Web\QLlaptop_1\QLLTwGit\obj\Debug\QLlaptop.dll
 E:\Do_an_Web\QLlaptop_1\QLLTwGit\obj\Debug\QLlaptop.pdb
+=======
+C:\Users\charl\Desktop\Laptop\QLlaptop\bin\PagedList.dll
+C:\Users\charl\Desktop\Laptop\QLlaptop\bin\PagedList.Mvc.dll
+C:\Users\charl\Desktop\Laptop\QLlaptop\bin\PagedList.xml
+C:\Users\charl\Desktop\Laptop\QLlaptop\bin\PagedList.Mvc.xml
+>>>>>>> ff01b03936a385ff5ffb53852881009262e38f17
