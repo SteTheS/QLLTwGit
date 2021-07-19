@@ -43,15 +43,26 @@ namespace QLlaptop.Controllers
         }
 
         //Lay 5 laptop gaming moi nhat
+        //private List<SanPham> GetLaptopGaming(int count)
+        //{
+        //    SanPham sp = new SanPham();
+        //    return data.SanPhams.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
+        //}
+        //public ActionResult GetLaptopGaming()
+        //{
+        //    var gaming = from sp in data.SanPhams
+        //                 where sp.Maloai == 2
+        //                 select sp;
+        //    var NewProc = gaming.
+        //}
 
-
-        public ActionResult Index(int ? page )
+        public ActionResult Index(/*int ? page*/ )
         {
-            int pageSize = 5;
-            int pageNum = (page ?? 1);
-            //Lay 10 laptop moi nhat
+            //int pageSize = 5;
+            //int pageNum = (page ?? 1);
+            ////Lay 10 laptop moi nhat
             var NewProc = GetNewProc(10);
-            return View(NewProc.ToPagedList(pageNum,pageSize));
+            return View(NewProc);
         }
 
         public ActionResult Detail(int id)
