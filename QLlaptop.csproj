@@ -281,6 +281,10 @@
     <Content Include="Content\images\All\Gigabyte G5 KC 5S11130SH_3.png" />
     <Content Include="Content\images\All\Lenovo IdeaPad Gaming 3 15ARH05 82EY00JXVN.png" />
     <Content Include="Content\images\All\Lenovo IdeaPad Slim 3 14ITL6 82H7003UVN.png" />
+    <Content Include="Content\images\All\Lenovo Legion 5 15ARH05 82B500GUVN.png" />
+    <Content Include="Content\images\All\Lenovo Legion 5 15ARH05 82B500GUVN_1.png" />
+    <Content Include="Content\images\All\Lenovo Legion 5 15ARH05 82B500GUVN_2.png" />
+    <Content Include="Content\images\All\Lenovo Legion 5 15ARH05 82B500GUVN_3.png" />
     <Content Include="Content\images\All\Lenovo ThinkBook 14 IIL 20SL00HQVN.png" />
     <Content Include="Content\images\All\logodefault.png" />
     <Content Include="Content\images\All\MSI GE66 Raider 10SFS 474VN.png" />
@@ -303,6 +307,12 @@
     <Content Include="Content\images\All\MSI Stealth 15M A11SDK 060VN.png" />
     <Content Include="Content\images\All\MSI Stealth 15M A11SDK 060VN_1.png" />
     <Content Include="Content\images\All\MSI Stealth 15M A11SDK 060VN_2.png" />
+    <Content Include="Content\images\Banner\Acer.png" />
+    <Content Include="Content\images\Banner\Asus.png" />
+    <Content Include="Content\images\Banner\Dell.png" />
+    <Content Include="Content\images\Banner\Gigabyte.png" />
+    <Content Include="Content\images\Banner\Lenovo.png" />
+    <Content Include="Content\images\Banner\MSI.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\Menu.css" />
