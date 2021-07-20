@@ -2,8 +2,16 @@
 
 @foreach (var item in Model)
 {
-    <a href="@Url.Action("SPtheoloai", "Home", new { id = item.Maloai})">
-        @item.Tenloai
-    </a>
-
+    <a href="@Url.Action("SPtheoloai", "Home", new { id = item.Maloai})">@item.Tenloai</a>
+    <div class="sub-content">
+        <div class="row">
+            <div class="mega-menu-01">
+                <h3>Thương hiệu</h3>
+                @{Html.RenderAction("getbr", "Home", new { id = item.Maloai });}
+            </div>
+        </div>
+    </div>
 }
+
+
+

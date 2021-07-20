@@ -84,3 +84,4 @@ C:\Users\charl\Desktop\Laptop\QLLTwGit\obj\Debug\QLlaptop.csproj.CoreCompileInpu
 C:\Users\charl\Desktop\Laptop\QLLTwGit\obj\Debug\QLlaptop.csproj.CopyComplete
 C:\Users\charl\Desktop\Laptop\QLLTwGit\obj\Debug\QLlaptop.dll
 C:\Users\charl\Desktop\Laptop\QLLTwGit\obj\Debug\QLlaptop.pdb
+C:\Users\charl\Desktop\Laptop\QLLTwGit\obj\Debug\QLlaptop.csproj.AssemblyReference.cache
