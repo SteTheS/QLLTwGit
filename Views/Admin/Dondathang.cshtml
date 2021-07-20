@@ -1,0 +1,56 @@
+﻿@model IEnumerable<QLlaptop.Models.DonDatHang>
+
+@{
+    ViewBag.Title = "Dondathang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thông tin đơn đặt hàng</h2>
+
+
+<table class="table" border="1">
+    <tr>
+        <th>
+            Tên khách hàng
+        </th>
+        <th>
+            Ngày đặt hàng
+        </th>
+        <th>
+            Ngày giao
+        </th>
+        <th>
+            Tình trạng thanh toán
+        </th>
+        <th>
+            Tình trạng giao hàng
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Khachhang.Hoten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngaygiao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tinhtrangthanhtoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tinhtranggiaohang)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Suaddh", new { id=item.MaDH }) |
+            @Html.ActionLink("Chi tiết", "Chitietddh", new { id=item.MaDH }) |
+            @Html.ActionLink("Xóa", "Xoaddh", new { id=item.MaDH })
+        </td>
+    </tr>
+}
+
+</table>

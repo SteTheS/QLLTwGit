@@ -1,0 +1,35 @@
+﻿@model QLlaptop.Models.ThuongHieu
+
+@{
+    ViewBag.Title = "Chitietthuonghieu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết thương hiệu</h2>
+
+<div>
+ 
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên thương hiệu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tenthuonghieu)
+        </dd>
+
+        <dt>
+            Giới thiệu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gioithieu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Suathuonghieu", new { id = Model.Mathuonghieu }) |
+    @Html.ActionLink("Quay lại danh sách", "Thuonghieu")
+</p>

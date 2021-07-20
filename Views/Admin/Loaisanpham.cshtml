@@ -1,0 +1,40 @@
+﻿@model IEnumerable<QLlaptop.Models.LoaiSanPham>
+
+@{
+    ViewBag.Title = "Loaisanpham";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Danh sách thể loại sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("Thêm loại sản phẩm mới", "Themloaisanpham")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th>
+            Tên loại
+        </th>
+        <th>
+            Mô tả
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tenloai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mota)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Sualoaisanpham", new { id=item.Maloai }) |
+            @Html.ActionLink("Chi tiết", "Chitietloaisanpham", new { id=item.Maloai }) |
+            @Html.ActionLink("Xóa ", "Xoaloaisanpham", new { id=item.Maloai })
+        </td>
+    </tr>
+}
+
+</table>

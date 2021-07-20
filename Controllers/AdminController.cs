@@ -41,11 +41,11 @@ namespace QLlaptop.Controllers
             }
          return View();
         }
+        //==============================================================================================================================================================================
         public ActionResult Sanpham(int ?page)
         {
             int pageNumber = (page ?? 1);
             int pageSize = 7;
-            //return View(data.SanPhams.ToList());
             return View(data.SanPhams.ToList().OrderBy(n => n.MaSP).ToPagedList(pageNumber, pageSize));
         }
         [HttpGet]
@@ -168,8 +168,202 @@ namespace QLlaptop.Controllers
                     data.SubmitChanges();   
                 }
             }
-
             return RedirectToAction("Sanpham");
         }
+//==============================================================================================================================================================================
+        public ActionResult Thuonghieu()
+        {
+            return View(data.ThuongHieus.ToList());
+        }
+        [HttpGet]
+        public ActionResult Themthuonghieu()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Themthuonghieu(ThuongHieu th)
+        {
+            data.ThuongHieus.InsertOnSubmit(th);
+            data.SubmitChanges();
+            return RedirectToAction("Thuonghieu");
+        }
+        public ActionResult Chitietthuonghieu(int id)
+        {
+            ThuongHieu hp = data.ThuongHieus.SingleOrDefault(n => n.Mathuonghieu == id);
+            ViewBag.Mathuonghieu = hp.Mathuonghieu;
+            if (hp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(hp);
+        }
+        [HttpGet]
+        public ActionResult Xoathuonghieu(int id)
+        {
+            ThuongHieu gv = data.ThuongHieus.SingleOrDefault(n => n.Mathuonghieu == id);
+            ViewBag.Mathuonghieu = gv.Mathuonghieu;
+            if (gv == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(gv);
+        }
+        [HttpPost, ActionName("Xoathuonghieu")]
+        public ActionResult Xacnhanxoath(int id)
+        {
+            ThuongHieu gv = data.ThuongHieus.SingleOrDefault(n => n.Mathuonghieu == id);
+            ViewBag.Mathuonghieu = gv.Mathuonghieu;
+            if (gv == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            data.ThuongHieus.DeleteOnSubmit(gv);
+            data.SubmitChanges();
+            return RedirectToAction("Thuonghieu");
+        }
+ //==============================================================================================================================================================================
+        public ActionResult Loaisanpham()
+        {
+            return View(data.LoaiSanPhams.ToList());
+        }
+        [HttpGet]
+        public ActionResult Themloaisanpham()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Themloaisanpham(LoaiSanPham th)
+        {
+            data.LoaiSanPhams.InsertOnSubmit(th);
+            data.SubmitChanges();
+            return RedirectToAction("Loaisanpham");
+        }
+        public ActionResult Chitietloaisanpham(int id)
+        {
+            LoaiSanPham hp = data.LoaiSanPhams.SingleOrDefault(n => n.Maloai == id);
+            ViewBag.Maloai = hp.Maloai;
+            if (hp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(hp);
+        }
+        [HttpGet]
+        public ActionResult Xoaloaisanpham(int id)
+        {
+            LoaiSanPham gv = data.LoaiSanPhams.SingleOrDefault(n => n.Maloai == id);
+            ViewBag.Maloai = gv.Maloai;
+            if (gv == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(gv);
+        }
+        [HttpPost, ActionName("Xoaloaisanpham")]
+        public ActionResult Xacnhanxoalsp(int id)
+        {
+            LoaiSanPham gv = data.LoaiSanPhams.SingleOrDefault(n => n.Maloai == id);
+            ViewBag.Maloai = gv.Maloai;
+            if (gv == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            data.LoaiSanPhams.DeleteOnSubmit(gv);
+            data.SubmitChanges();
+            return RedirectToAction("Loaisanpham");
+        }
+        //==============================================================================================================================================================================
+        public ActionResult TTKhachhang()
+        {
+            return View(data.Khachhangs.ToList());
+        }
+        public ActionResult Chitietkhachhang(int id)
+        {
+            Khachhang hp = data.Khachhangs.SingleOrDefault(n => n.MaKH == id);
+            ViewBag.MaKH = hp.MaKH;
+            if (hp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(hp);
+        }
+        [HttpGet]
+        public ActionResult XoaKhachhang(int id)
+        {
+            Khachhang hp = data.Khachhangs.SingleOrDefault(n => n.MaKH == id);
+            ViewBag.MaKH = hp.MaKH;
+            if (hp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(hp);
+        }
+        [HttpPost, ActionName("XoaKhachhang")]
+        public ActionResult Xacnhanxoakh(int id)
+        {
+            Khachhang hp = data.Khachhangs.SingleOrDefault(n => n.MaKH == id);
+            ViewBag.MaKH = hp.MaKH;
+            if (hp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            data.Khachhangs.DeleteOnSubmit(hp);
+            data.SubmitChanges();
+            return RedirectToAction("TTKhachhang");
+        }
+        //==============================================================================================================================================================================
+        public ActionResult Dondathang()
+        {
+            return View(data.DonDatHangs.ToList());
+        }
+        public ActionResult Chitietddh(int id)
+        {
+            DonDatHang hp = data.DonDatHangs.SingleOrDefault(n => n.MaDH == id);
+            ViewBag.MaDH = hp.MaDH;
+            if (hp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(hp);
+        }
+        [HttpGet]
+        public ActionResult Xoaddh(int id)
+        {
+            DonDatHang hp = data.DonDatHangs.SingleOrDefault(n => n.MaDH == id);
+            ViewBag.MaDH = hp.MaDH;
+            if (hp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(hp);
+        }
+        [HttpPost, ActionName("XoaKhachhang")]
+        public ActionResult Xacnhanxoaddh(int id)
+        {
+            DonDatHang hp = data.DonDatHangs.SingleOrDefault(n => n.MaDH == id);
+            ViewBag.MaDH = hp.MaDH;
+            if (hp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            data.DonDatHangs.DeleteOnSubmit(hp);
+            data.SubmitChanges();
+            return RedirectToAction("Dondathang");
+        }
+
     }
 }

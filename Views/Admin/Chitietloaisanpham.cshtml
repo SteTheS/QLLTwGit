@@ -1,0 +1,35 @@
+﻿@model QLlaptop.Models.LoaiSanPham
+
+@{
+    ViewBag.Title = "Chitietloaisanpham";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết loại sản phẩm</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Tên loại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tenloai)
+        </dd>
+
+        <dt>
+            Mô tả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Sualoaisanpham", new { id = Model.Maloai }) |
+    @Html.ActionLink("Quay lại danh sách", "Loaisanpham")
+</p>

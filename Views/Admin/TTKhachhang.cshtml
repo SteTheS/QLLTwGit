@@ -1,0 +1,80 @@
+﻿@model IEnumerable<QLlaptop.Models.Khachhang>
+
+@{
+    ViewBag.Title = "TTKhachhang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Danh sách thôn tin khách hàng</h2>
+
+<br />
+<table class="table" border="1">
+    <tr>
+        <th>
+            Họ tên
+        </th>
+        <th>
+            Tài khoản
+        </th>
+        <th>
+            Mật khẩu
+        </th>
+        <th>
+            Ngày sinh
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th>
+           SDT
+        </th>
+        <th>
+            CMND
+        </th>
+        <th>
+           EMail
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hoten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngaysinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diachi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gioitinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CMND)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Suattkhachhang", new { id=item.MaKH }) |
+            @Html.ActionLink("Chi tiết", "Chitietkhachhang", new { id=item.MaKH }) |
+            @Html.ActionLink("Xóa", "XoaKhachhang", new { id=item.MaKH })
+        </td>
+    </tr>
+}
+
+</table>

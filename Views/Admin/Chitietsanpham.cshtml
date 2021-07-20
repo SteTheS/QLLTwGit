@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Chitietsanpham</h2>
+<h2>Chi tiết sản phẩm</h2>
 
 <div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Tên sản phẩm:
+            Tên sản phẩm
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            Thương hiệu:
+            Thương hiệu
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            Loại sản phẩm:
+            Loại sản phẩm
         </dt>
 
         <dd>
@@ -35,51 +35,167 @@
         </dd>
 
         <dt>
-            Hình sản phẩm:
+            Hình sản phẩm
         </dt>
 
         <dd>
-            @*@Html.DisplayFor(model => model.ImageSP)*@
             <img src=" @Url.Content("~/Content/images/All/" +Model.ImageSP)" width="120px" />
         </dd>
 
         <dt>
-            Hình chi tiết 1:
+            Hình chi tiết 1
         </dt>
 
         <dd>
-            @*@Html.DisplayFor(model => model.ImageSP_1)*@
             <img src=" @Url.Content("~/Content/images/All/" +Model.ImageSP_1)" width="120px" />
         </dd>
 
         <dt>
-           Hình chi tiết 2:
+            Hình chi tiết 2
         </dt>
 
         <dd>
-            @*@Html.DisplayFor(model => model.ImageSP_2)*@
             <img src=" @Url.Content("~/Content/images/All/" +Model.ImageSP_2)" width="120px" />
         </dd>
 
         <dt>
-            Hình chi tiết 3:
+            Hình chi tiết 3
         </dt>
 
         <dd>
-            @*@Html.DisplayFor(model => model.ImageSP_3)*@
             <img src=" @Url.Content("~/Content/images/All/" +Model.ImageSP_3)" width="120px" />
         </dd>
 
         <dt>
-            Thông tin sản phẩm:
+            @Html.DisplayNameFor(model => model.CPU)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ThongtinSP)
+            @Html.DisplayFor(model => model.CPU)
         </dd>
 
         <dt>
-            Số lượng tồn:
+            @Html.DisplayNameFor(model => model.RAM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAM)
+        </dd>
+
+        <dt>
+            Bộ nhớ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bonho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GPU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GPU)
+        </dd>
+
+        <dt>
+            Màng hình
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manhinh)
+        </dd>
+
+        <dt>
+            Cổng giao tiếp
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conggiaotiep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Audio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Audio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WIFI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WIFI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bluetooth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bluetooth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Webcam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Webcam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HDH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HDH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pin)
+        </dd>
+
+        <dt>
+            Trọng lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trongluong)
+        </dd>
+
+        <dt>
+            Màu sắc
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mausac)
+        </dd>
+
+        <dt>
+            Kích thước
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kichthuoc)
+        </dd>
+
+        <dt>
+            Số lượng tồn
         </dt>
 
         <dd>
@@ -87,7 +203,7 @@
         </dd>
 
         <dt>
-            Giá tiền:
+            Giá tiền
         </dt>
 
         <dd>
@@ -95,7 +211,7 @@
         </dd>
 
         <dt>
-            Ngày cập nhật:
+            Ngày cập nhật
         </dt>
 
         <dd>
@@ -108,3 +224,4 @@
     @Html.ActionLink("Chỉnh sửa", "Suasanpham", new { id = Model.MaSP }) |
     @Html.ActionLink("Quay lại danh sách", "Sanpham")
 </p>
+

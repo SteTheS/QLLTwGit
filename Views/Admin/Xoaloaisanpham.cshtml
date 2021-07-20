@@ -1,0 +1,41 @@
+﻿@model QLlaptop.Models.LoaiSanPham
+
+@{
+    ViewBag.Title = "Xoaloaisanpham";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa laoi5 sản phẩm</h2>
+
+<h3>Bạn có cahc81 xác nhận muốn xóa?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên loại 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tenloai)
+        </dd>
+
+        <dt>
+            Mô tả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại danh sách", "Loaisanpham")
+        </div>
+    }
+</div>
