@@ -86,19 +86,19 @@
   <Table Name="dbo.SanPham" Member="SanPhams">
     <Type Name="SanPham">
       <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TenSP" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TenSP" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="Mathuonghieu" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Maloai" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ImageSP" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="ImageSP_1" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="ImageSP_2" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="ImageSP_3" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ImageSP" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ImageSP_1" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ImageSP_2" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ImageSP_3" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="CPU" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="RAM" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="Bonho" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="GPU" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="Manhinh" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Conggiaotiep" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Conggiaotiep" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="Audio" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="LAN" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="WIFI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />

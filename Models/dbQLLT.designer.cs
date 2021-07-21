@@ -1843,7 +1843,7 @@ namespace QLlaptop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenSP", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenSP", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
 		public string TenSP
 		{
 			get
@@ -1911,7 +1911,7 @@ namespace QLlaptop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageSP", DbType="NVarChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageSP", DbType="VarChar(200)")]
 		public string ImageSP
 		{
 			get
@@ -1931,7 +1931,7 @@ namespace QLlaptop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageSP_1", DbType="NVarChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageSP_1", DbType="VarChar(200)")]
 		public string ImageSP_1
 		{
 			get
@@ -1951,7 +1951,7 @@ namespace QLlaptop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageSP_2", DbType="NVarChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageSP_2", DbType="VarChar(200)")]
 		public string ImageSP_2
 		{
 			get
@@ -1971,7 +1971,7 @@ namespace QLlaptop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageSP_3", DbType="NVarChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageSP_3", DbType="VarChar(200)")]
 		public string ImageSP_3
 		{
 			get
@@ -2091,7 +2091,7 @@ namespace QLlaptop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Conggiaotiep", DbType="NVarChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Conggiaotiep", DbType="NVarChar(500)")]
 		public string Conggiaotiep
 		{
 			get

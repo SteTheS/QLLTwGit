@@ -175,7 +175,7 @@ namespace QLlaptop.Controllers
                     var path_2 = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName_2);
                     var fileName_3 = Path.GetFileName(fileupload_3.FileName);
                     var path_3 = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName_3);
-                    if (System.IO.File.Exists(path))
+                    if (System.IO.File.Exists(path) || System.IO.File.Exists(path_1) || System.IO.File.Exists(path_2) || System.IO.File.Exists(path_3))
                     {
                         ViewBag.Thongbao = "Hình ảnh đã trùng";
                     }
@@ -190,11 +190,14 @@ namespace QLlaptop.Controllers
                     sp.ImageSP_1 = fileName_1;
                     sp.ImageSP_2 = fileName_2;
                     sp.ImageSP_3 = fileName_3;
-                    UpdateModel(sp);
-                    data.SubmitChanges();   
+                    //UpdateModel(sp);
+                    //data.SubmitChanges();   
+                    Query qr = new Query();
+                    qr.UpdateSanPham(sp);
                 }
+                return RedirectToAction("Sanpham");
             }
-            return RedirectToAction("Sanpham");
+            
         }
 //==============================================================================================================================================================================
         public ActionResult Thuonghieu()

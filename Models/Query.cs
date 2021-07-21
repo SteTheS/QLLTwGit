@@ -13,15 +13,17 @@ namespace QLlaptop.Models
         {
             db = new DBConnection();
         }
-        //public bool UpdateThuonghieu(ThuongHieu model)
-        //{
-        //    string sql = "Update Thuonghieu set Tenthuonghieu= N'"+model.Tenthuonghieu+"',Gioithieu=N'"+model.Gioithieu"' where Mathuonghieu" + model.Mathuonghieu;
-        //    SqlConnection con = db.GetConnection();
-        //    SqlCommand cmd = new SqlCommand(sql, con);
-        //    con.Open();
-        //    var kq = cmd.ExecuteNonQuery();
-        //    con.Close();
-        //    return kq > 0;
-        //}
+        public bool UpdateSanPham(SanPham model)
+        {
+            string sql = "Update SanPham set TenSP= N'" + model.TenSP + "',Mathuonghieu= '" + model.Mathuonghieu + "',Maloai= '" + model.Maloai + "',ImageSP='" + model.ImageSP + "',ImageSP_1='" + model.ImageSP_1 + "',ImageSP_2='" + model.ImageSP_2 + "',ImageSP_3='" + model.ImageSP_3 + "'," +
+                "CPU=N'" + model.CPU + "',RAM=N'" + model.RAM + "',Bonho=N'" + model.Bonho + "',GPU=N'" + model.GPU + "',Manhinh=N'" + model.Manhinh + "',Conggiaotiep=N'" + model.Conggiaotiep + "',Audio=N'" + model.Audio + "',LAN=N'" + model.LAN + "',WIFI=N'" + model.WIFI + "',Bluetooth=N'" + model.Bluetooth + "'" +
+                ",Webcam=N'" + model.Webcam + "',HDH=N'" + model.HDH + "',Pin=N'" + model.Pin + "',Trongluong=N'" + model.Trongluong + "',Mausac=N'" + model.Mausac + "',Kichthuoc=N'" + model.Kichthuoc + "',Soluongton= '" + model.Soluongton + "',Giatien= '" + model.Giatien + "',Ngaycapnhat='" + model.Ngaycapnhat + "' where MaSP = " + model.MaSP;
+            SqlConnection con = db.GetConnection();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            var kq = cmd.ExecuteNonQuery();
+            con.Close();
+            return kq > 0;
+        }
     }
 }
