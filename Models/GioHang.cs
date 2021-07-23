@@ -20,6 +20,7 @@ namespace QLlaptop.Models
                 return iSoluong * dDongia;
             }
         }
+
         public GioHang(int MaSP)
         {
             iMasanpham = MaSP;

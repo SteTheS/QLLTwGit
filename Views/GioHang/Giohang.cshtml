@@ -10,7 +10,7 @@
     <tr style=" text-align :center ; font-weight:bold">
         <td> Mã sản phẩm</td>
         <td>Tên sản phẩm</td>
-        <td>Ảnh sản phẩm</td>
+        <td width="130px">Ảnh sản phẩm</td>
         <td>Số lượng</td>
         <td>Đơn giá </td>
         <td>Thành tiền</td>
@@ -23,7 +23,7 @@
         <tr style=" text-align :center; font-weight:bold">
             <td>@item.iMasanpham</td>
             <td>@item.sTensanpham</td>
-            <td><img src="~/Content/images/@item.sAnhbia" /></td>
+            <td><img src="~/Content/images/All/@item.sAnhbia" /></td>
             @using (Html.BeginForm("Capnhatgiohang", "Giohang", new { @iMaSP = item.iMasanpham }))
             {
                 <td>

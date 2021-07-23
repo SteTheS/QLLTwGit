@@ -18,6 +18,5 @@ namespace QLlaptop.Models
         {
             return new SqlConnection(strCon);
         }
-
     }
 }

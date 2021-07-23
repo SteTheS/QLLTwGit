@@ -475,6 +475,13 @@
     <Content Include="Views\Admin\Chitietddh.cshtml" />
     <Content Include="Views\Admin\Xoaddh.cshtml" />
     <Content Include="Views\Admin\Suasanpham.cshtml" />
+    <Content Include="Views\Admin\Suathuonghieu.cshtml" />
+    <Content Include="Views\Admin\Sualoaisanpham.cshtml" />
+    <Content Include="Views\Admin\Suakhachhang.cshtml" />
+    <Content Include="Views\Home\SPtheothuonghieu.cshtml" />
+    <Content Include="Views\Home\Chamsockhachhang.cshtml" />
+    <Content Include="Views\Home\Chamsocgiaonhan.cshtml" />
+    <Content Include="Views\Home\Lienhe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

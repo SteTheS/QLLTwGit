@@ -167,6 +167,7 @@ namespace QLlaptop.Controllers
             {
                 if (ModelState.IsValid)
                 {
+
                     var fileName = Path.GetFileName(fileupload.FileName);
                     var path = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName);
                     var fileName_1 = Path.GetFileName(fileupload_1.FileName);
@@ -254,7 +255,32 @@ namespace QLlaptop.Controllers
             data.SubmitChanges();
             return RedirectToAction("Thuonghieu");
         }
- //==============================================================================================================================================================================
+
+        [HttpGet]
+        public ActionResult Suathuonghieu(int id)
+        {
+            ThuongHieu thuonghieu = data.ThuongHieus.SingleOrDefault(n => n.Mathuonghieu == id);
+
+            if(thuonghieu == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(thuonghieu);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Suathuonghieu(ThuongHieu thuonghieu)
+        {
+            if (ModelState.IsValid)
+            {
+                Query qr = new Query();
+                qr.UpdateThuongHieu(thuonghieu);
+            }
+            return RedirectToAction("Thuonghieu");
+        }
+        //==============================================================================================================================================================================
         public ActionResult Loaisanpham()
         {
             return View(data.LoaiSanPhams.ToList());
@@ -309,6 +335,31 @@ namespace QLlaptop.Controllers
             data.SubmitChanges();
             return RedirectToAction("Loaisanpham");
         }
+
+        [HttpGet]
+        public ActionResult Sualoaisanpham(int id)
+        {
+            LoaiSanPham loaisanpham = data.LoaiSanPhams.SingleOrDefault(n => n.Maloai == id);
+
+            if (loaisanpham == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(loaisanpham);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Sualoaisanpham(LoaiSanPham loaisanpham)
+        {
+            if (ModelState.IsValid)
+            {
+                Query qr = new Query();
+                qr.UpdateLoaiSanPham(loaisanpham);
+            }
+            return RedirectToAction("Loaisanpham");
+        }
         //==============================================================================================================================================================================
         public ActionResult TTKhachhang()
         {
@@ -349,6 +400,31 @@ namespace QLlaptop.Controllers
             }
             data.Khachhangs.DeleteOnSubmit(hp);
             data.SubmitChanges();
+            return RedirectToAction("TTKhachhang");
+        }
+
+        [HttpGet]
+        public ActionResult Suakhachhang(int id)
+        {
+            Khachhang khachhang = data.Khachhangs.SingleOrDefault(n => n.MaKH == id);
+
+            if (khachhang == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(khachhang);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Suakhachhang(Khachhang khachhang)
+        {
+            if (ModelState.IsValid)
+            {
+                Query qr = new Query();
+                qr.UpdateKhachhang(khachhang);
+            }
             return RedirectToAction("TTKhachhang");
         }
         //==============================================================================================================================================================================

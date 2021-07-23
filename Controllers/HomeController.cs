@@ -74,12 +74,14 @@ namespace QLlaptop.Controllers
         }
 
         //Lấy San pham theo loại
-        public ActionResult SPtheoloai(int id)
+        public ActionResult SPtheoloai(int id, int ? page)
         {
+            int pageSize = 12;
+            int pageNum = (page ?? 1);
             var sanpham = from sp in data.SanPhams where sp.Maloai == id select sp;
-            return View(sanpham);
+            return View(sanpham.ToPagedList(pageNum, pageSize));
         }
-        //public ActionResult SPtheoloai(int ?page)
+        //public ActionResult SPtheoloai(int? page)
         //{
         //    int pageNumber = (page ?? 1);
         //    int pageSize = 7;
@@ -87,10 +89,12 @@ namespace QLlaptop.Controllers
         //}
 
         //Lấy Sản phẩm theo thương hiệu
-        public ActionResult SPtheothuonghieu(int id)
+        public ActionResult SPtheothuonghieu(int id, int ? page)
         {
+            int pageSize = 12;
+            int pageNum = (page ?? 1);
             var sanpham = from sp in data.SanPhams where sp.Mathuonghieu == id select sp;
-            return View(sanpham);
+            return View(sanpham.ToPagedList(pageNum, pageSize));
         }
     }
 }

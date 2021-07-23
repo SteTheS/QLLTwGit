@@ -1,7 +1,8 @@
-﻿@model IEnumerable<QLlaptop.Models.SanPham>
-@*@using QLlaptop.Models
+﻿@*@model IEnumerable<QLlaptop.Models.SanPham>*@
+
+@using QLlaptop.Models;
 @using PagedList.Mvc;
-@model PagedList.PagedList<SanPham>*@
+@model PagedList.PagedList<SanPham>
 @{
     ViewBag.Title = "SPtheoloai";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -28,7 +29,7 @@
                         </div>
 
                         <div class="product-option-shop">
-                            <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Add to cart</a>
+                            <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="@Url.Action("ThemGiohang","GioHang",new { @iMasanpham = sp.MaSP,@strURL=Request.Url.ToString()})">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -37,7 +38,7 @@
 
        
 
-        <div class="row">
+        @*<div class="row">
             <div class="col-md-12">
                 <div class="product-pagination text-center">
                     <nav>
@@ -61,15 +62,15 @@
                     </nav>
                 </div>
             </div>
-        </div>
+        </div>*@
     </div>
 </div>
-@*Trang @(Model.PageCount < Model.PageNumber ? 0:Model.PageNumber)/@Model.PageCount;
+Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount;
 <div class="MenuTrang">
-    @Html.PagedListPager(Model, page => Url.Action("Detail", new { page = page }))
+    @Html.PagedListPager(Model, page => Url.Action("SPtheoloai", new { page = page }))
 </div>
 <style>
     .MenuTrang li {
         display: inline
     }
-</style>*@
+</style>

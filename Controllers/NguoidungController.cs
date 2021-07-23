@@ -69,10 +69,10 @@ namespace QLlaptop.Controllers
                 kh.Diachi = diachi;
                 if (gioitinh== null )
                 {
-                    kh.Gioitinh = true;
+                    kh.Gioitinh = false;
                 }
                 else
-                    kh.Gioitinh = false;
+                    kh.Gioitinh = true;
                 kh.SDT = sdt;
                 kh.CMND = cmnd;
                 kh.Email = email;
@@ -107,7 +107,7 @@ namespace QLlaptop.Controllers
                 {
                     ViewBag.Thongbao = "Chúc mừng bạn đã đăng nhập thành công";
                     Session["User"] = kh;
-                    //return RedirectToAction("Index","Home");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                     ViewBag.Thongbao = "Có gì đó không đúng mời bạn đăng nhập lại ";
