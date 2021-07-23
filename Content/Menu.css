@@ -77,7 +77,7 @@
 
     .vt_megamenu_content {
         position: absolute;
-        width: 150px;
+        width: 300px;
         left: 0px;
         z-index: 999;
         top: 60px;
@@ -93,16 +93,18 @@
 
     .mega-menu-01 {
         line-height: initial;
-        display: inline-block;
+        display: block;
         position: relative;
         padding: 30px;
         border-radius: 0 0 6px 6px;
         box-shadow: 0 5px 0 0 #cccccc;
         background-color: #fff;
+        width:130px;
     }
 
         .mega-menu-01 .menu-01 {
             margin-right: 50px;
+            list-style:none;
         }
 
             .mega-menu-01 .menu-01 .content-col li {
@@ -129,7 +131,6 @@
                     text-transform: capitalize;
                     font-size: 14px;
                     width: 150px;
-                    border-radius: 25px;
                 }
 
                    .mega-menu-01 .menu-01 .content-col li a:before {
@@ -159,7 +160,7 @@
 
                     
 
-        .mega-menu-01 .menu-01.menu-01-cate {
+        .mega-menu-01 .menu-01 .menu-01-cate {
             width: 170px;
             float: left;
         }
