@@ -309,10 +309,13 @@
     <Content Include="Content\images\All\MSI Stealth 15M A11SDK 060VN_2.png" />
     <Content Include="Content\images\Banner\Acer.png" />
     <Content Include="Content\images\Banner\Asus.png" />
+    <Content Include="Content\images\Banner\delivery-truck-64x64.png" />
     <Content Include="Content\images\Banner\Dell.png" />
     <Content Include="Content\images\Banner\Gigabyte.png" />
     <Content Include="Content\images\Banner\Lenovo.png" />
     <Content Include="Content\images\Banner\MSI.png" />
+    <Content Include="Content\images\Banner\return-64x64.png" />
+    <Content Include="Content\images\Banner\support-64x64.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\Menu.css" />
@@ -479,9 +482,9 @@
     <Content Include="Views\Admin\Sualoaisanpham.cshtml" />
     <Content Include="Views\Admin\Suakhachhang.cshtml" />
     <Content Include="Views\Home\SPtheothuonghieu.cshtml" />
-    <Content Include="Views\Home\Chamsockhachhang.cshtml" />
     <Content Include="Views\Home\Chamsocgiaonhan.cshtml" />
     <Content Include="Views\Home\Lienhe.cshtml" />
+    <Content Include="Views\Home\Chamsocbanhang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

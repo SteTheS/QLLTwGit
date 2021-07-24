@@ -96,5 +96,23 @@ namespace QLlaptop.Controllers
             var sanpham = from sp in data.SanPhams where sp.Mathuonghieu == id select sp;
             return View(sanpham.ToPagedList(pageNum, pageSize));
         }
+
+        //Chăm sóc khách hàng
+        public ActionResult Chamsocbanhang()
+        {
+            return View();
+        }
+
+        //Chăm sóc giao nhận
+        public ActionResult Chamsocgiaonhan()
+        {
+            return View();
+        }
+
+        //Liên hệ
+        public ActionResult Lienhe()
+        {
+            return View();
+        }
     }
 }
