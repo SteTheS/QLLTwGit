@@ -18,7 +18,14 @@ namespace QLlaptop.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            return View();
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View();
+            }
         }
         [HttpGet]
         public ActionResult Login()
@@ -46,16 +53,32 @@ namespace QLlaptop.Controllers
         //==============================================================================================================================================================================
         public ActionResult Sanpham(int ?page)
         {
+            
             int pageNumber = (page ?? 1);
             int pageSize = 7;
-            return View(data.SanPhams.ToList().OrderBy(n => n.MaSP).ToPagedList(pageNumber, pageSize));
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(data.SanPhams.ToList().OrderBy(n => n.MaSP).ToPagedList(pageNumber, pageSize));
+            }
+            
         }
         [HttpGet]
         public ActionResult Themsanpham()
         {
             ViewBag.Mathuonghieu = new SelectList(data.ThuongHieus.ToList().OrderBy(n => n.Tenthuonghieu), "Mathuonghieu", "Tenthuonghieu");
             ViewBag.Maloai = new SelectList(data.LoaiSanPhams.ToList().OrderBy(n => n.Tenloai), "Maloai", "Tenloai");
-            return View();
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View();
+            }
         }
         [HttpPost]
         [ValidateInput(false)]
@@ -113,7 +136,15 @@ namespace QLlaptop.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(sp);
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(sp);
+            }
+            
         }
         [HttpGet]
         public ActionResult Xoasanpham(int id)
@@ -125,7 +156,14 @@ namespace QLlaptop.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(sp);
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(sp);
+            }
         }
         [HttpPost,ActionName("Xoasanpham")]
         public ActionResult Xacnhanxoa(int id)
@@ -143,27 +181,38 @@ namespace QLlaptop.Controllers
         }
 
         [HttpGet]
-        public ActionResult Suasanpham(int? id)
+        public ActionResult Suasanpham(int id)
         {
             SanPham sp = data.SanPhams.SingleOrDefault(n => n.MaSP == id);
+            ViewBag.MaSP = sp.MaSP;
             if (sp == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            ViewBag.Mathuonghieu = new SelectList(data.ThuongHieus.ToList().OrderBy(n => n.Tenthuonghieu), "Mathuonghieu", "Tenthuonghieu", sp.Mathuonghieu);
-            ViewBag.Maloai = new SelectList(data.LoaiSanPhams.ToList().OrderBy(n => n.Tenloai), "Maloai", "Tenloai", sp.Maloai);
-            return View(sp);
+            ViewBag.mathuonghieu = new SelectList(data.ThuongHieus.ToList().OrderBy(n => n.Tenthuonghieu), "Mathuonghieu", "Tenthuonghieu", sp.Mathuonghieu);
+            ViewBag.maloai = new SelectList(data.LoaiSanPhams.ToList().OrderBy(n => n.Tenloai), "Maloai", "Tenloai", sp.Maloai);
+
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(sp);
+            }
+            
         }
+
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Suasanpham([Bind(Include = "MaSP, TenSP, Mathuonghieu, Maloai, ImageSP, ImageSP_1, ImageSP_2, ImageSP_3, CPU, RAM, Bonho, GPU, Manhinh, Conggiaotiep, Audio, LAN, WIFI, Bluetooth, Webcam, HDH, Pin, Trongluong, Mausac, Kichthuoc, Soluongton, Giatien, Ngaycapnhat")] SanPham sp, HttpPostedFileBase fileupload, HttpPostedFileBase fileupload_1, HttpPostedFileBase fileupload_2, HttpPostedFileBase fileupload_3)
+        public ActionResult Suasanpham(/*[Bind(Include = "MaSP, TenSP, Mathuonghieu, Maloai, ImageSP, ImageSP_1, ImageSP_2, ImageSP_3, CPU, RAM, Bonho, GPU, Manhinh, Conggiaotiep, Audio, LAN, WIFI, Bluetooth, Webcam, HDH, Pin, Trongluong, Mausac, Kichthuoc, Soluongton, Giatien, Ngaycapnhat")]*/ SanPham sp, HttpPostedFileBase fileupload, HttpPostedFileBase fileupload_1, HttpPostedFileBase fileupload_2, HttpPostedFileBase fileupload_3)
         {
             ViewBag.Mathuonghieu = new SelectList(data.ThuongHieus.ToList().OrderBy(n => n.Tenthuonghieu), "Mathuonghieu", "Tenthuonghieu");
             ViewBag.Maloai = new SelectList(data.LoaiSanPhams.ToList().OrderBy(n => n.Tenloai), "Maloai", "Tenloai");
             if (fileupload == null)
             {
-                ViewBag.Thongbao = "Vui lòng chọn ảnh bìa";
+                ViewBag.Thongbao = "Vui lòng chọn ảnh chính";
                 return View();
             }
             else
@@ -171,14 +220,14 @@ namespace QLlaptop.Controllers
                 if (ModelState.IsValid)
                 {
                     var fileName = Path.GetFileName(fileupload.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/images/All"), fileName);
                     var fileName_1 = Path.GetFileName(fileupload_1.FileName);
-                    var path_1 = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName_1);
+                    var path_1 = Path.Combine(Server.MapPath("~/Content/images/All"), fileName_1);
                     var fileName_2 = Path.GetFileName(fileupload_2.FileName);
-                    var path_2 = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName_2);
+                    var path_2 = Path.Combine(Server.MapPath("~/Content/images/All"), fileName_2);
                     var fileName_3 = Path.GetFileName(fileupload_3.FileName);
-                    var path_3 = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName_3);
-                    if (System.IO.File.Exists(path) || System.IO.File.Exists(path_1) || System.IO.File.Exists(path_2) || System.IO.File.Exists(path_3))
+                    var path_3 = Path.Combine(Server.MapPath("~/Content/images/All"), fileName_3);
+                    if (System.IO.File.Exists(path))
                     {
                         ViewBag.Thongbao = "Hình ảnh đã trùng";
                     }
@@ -202,78 +251,33 @@ namespace QLlaptop.Controllers
                 }
                 return RedirectToAction("Sanpham");
             }
-            
+
         }
-        //[HttpGet]
-        //public ActionResult Suasanpham(int id)
-        //{
-        //    SanPham sp = data.SanPhams.SingleOrDefault(n => n.MaSP == id);
-        //    if (sp == null)
-        //    {
-        //        Response.StatusCode = 404;
-        //        return null;
-        //    }
-        //    ViewBag.Mathuonghieu = new SelectList(data.ThuongHieus.ToList().OrderBy(n => n.Tenthuonghieu), "Mathuonghieu", "Tenthuonghieu",sp.Mathuonghieu);
-        //    ViewBag.Maloai = new SelectList(data.LoaiSanPhams.ToList().OrderBy(n => n.Tenloai), "Maloai", "Tenloai",sp.Maloai);
-        //    return View(sp);
-        //}
-        //[HttpPost]
-        //[ValidateInput(false)]
-        //public ActionResult Suasanpham(SanPham sp , HttpPostedFileBase fileupload, HttpPostedFileBase fileupload_1, HttpPostedFileBase fileupload_2, HttpPostedFileBase fileupload_3)
-        //{
-        //    ViewBag.Mathuonghieu = new SelectList(data.ThuongHieus.ToList().OrderBy(n => n.Tenthuonghieu), "Mathuonghieu", "Tenthuonghieu");
-        //    ViewBag.Maloai = new SelectList(data.LoaiSanPhams.ToList().OrderBy(n => n.Tenloai), "Maloai", "Tenloai");
-        //    if (fileupload == null)
-        //    {
-        //        ViewBag.Thongbao = "Vui lòng chọn ảnh bìa";
-        //        return View();
-        //    }
-        //    else
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
 
-        //            var fileName = Path.GetFileName(fileupload.FileName);
-        //            var path = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName);
-        //            var fileName_1 = Path.GetFileName(fileupload_1.FileName);
-        //            var path_1 = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName_1);
-        //            var fileName_2 = Path.GetFileName(fileupload_2.FileName);
-        //            var path_2 = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName_2);
-        //            var fileName_3 = Path.GetFileName(fileupload_3.FileName);
-        //            var path_3 = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName_3);
-        //            if (System.IO.File.Exists(path) || System.IO.File.Exists(path_1) || System.IO.File.Exists(path_2) || System.IO.File.Exists(path_3))
-        //            {
-        //                ViewBag.Thongbao = "Hình ảnh đã trùng";
-        //            }
-        //            else
-        //            {
-        //                fileupload.SaveAs(path);
-        //                fileupload_1.SaveAs(path_1);
-        //                fileupload_2.SaveAs(path_2);
-        //                fileupload_3.SaveAs(path_3);
-        //            }
-        //            sp.ImageSP = fileName;
-        //            sp.ImageSP_1 = fileName_1;
-        //            sp.ImageSP_2 = fileName_2;
-        //            sp.ImageSP_3 = fileName_3;
-        //            //UpdateModel(sp);
-        //            //data.SubmitChanges();   
-        //            Query qr = new Query();
-        //            qr.UpdateSanPham(sp);
-        //        }
-        //        return RedirectToAction("Sanpham");
-        //    }
-
-        //}
         //==============================================================================================================================================================================
         public ActionResult Thuonghieu()
         {
-            return View(data.ThuongHieus.ToList());
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(data.ThuongHieus.ToList());
+            }
+            
         }
         [HttpGet]
         public ActionResult Themthuonghieu()
         {
-            return View();
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View();
+            }
         }
         [HttpPost]
         [ValidateInput(false)]
@@ -304,7 +308,14 @@ namespace QLlaptop.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(gv);
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(gv);
+            }
         }
         [HttpPost, ActionName("Xoathuonghieu")]
         public ActionResult Xacnhanxoath(int id)
@@ -331,7 +342,14 @@ namespace QLlaptop.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(thuonghieu);
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(thuonghieu);
+            }
         }
 
         [HttpPost]
@@ -348,12 +366,26 @@ namespace QLlaptop.Controllers
         //==============================================================================================================================================================================
         public ActionResult Loaisanpham()
         {
-            return View(data.LoaiSanPhams.ToList());
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(data.LoaiSanPhams.ToList());
+            }
         }
         [HttpGet]
         public ActionResult Themloaisanpham()
         {
-            return View();
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View();
+            }
         }
         [HttpPost]
         [ValidateInput(false)]
@@ -372,7 +404,14 @@ namespace QLlaptop.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(hp);
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(hp);
+            }
         }
         [HttpGet]
         public ActionResult Xoaloaisanpham(int id)
@@ -384,7 +423,14 @@ namespace QLlaptop.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(gv);
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(gv);
+            }
         }
         [HttpPost, ActionName("Xoaloaisanpham")]
         public ActionResult Xacnhanxoalsp(int id)
@@ -411,7 +457,14 @@ namespace QLlaptop.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(loaisanpham);
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(loaisanpham);
+            }
         }
 
         [HttpPost]
@@ -439,7 +492,14 @@ namespace QLlaptop.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(hp);
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(hp);
+            }
         }
         [HttpGet]
         public ActionResult XoaKhachhang(int id)
@@ -451,7 +511,14 @@ namespace QLlaptop.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(hp);
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(hp);
+            }
         }
         [HttpPost, ActionName("XoaKhachhang")]
         public ActionResult Xacnhanxoakh(int id)
@@ -468,37 +535,45 @@ namespace QLlaptop.Controllers
             return RedirectToAction("TTKhachhang");
         }
 
-        [HttpGet]
-        public ActionResult Suakhachhang(int id)
-        {
-            Khachhang khachhang = data.Khachhangs.SingleOrDefault(n => n.MaKH == id);
+        //[HttpGet]
+        //public ActionResult Suakhachhang(int id)
+        //{
+        //    Khachhang khachhang = data.Khachhangs.SingleOrDefault(n => n.MaKH == id);
 
-            if (khachhang == null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            return View(khachhang);
-        }
+        //    if (khachhang == null)
+        //    {
+        //        Response.StatusCode = 404;
+        //        return null;
+        //    }
+        //    return View(khachhang);
+        //}
 
-        [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult Suakhachhang(Khachhang khachhang)
-        {
-            if (ModelState.IsValid)
-            {
-                Query qr = new Query();
-                qr.UpdateKhachhang(khachhang);
-            }
-            return RedirectToAction("TTKhachhang");
-        }
+        //[HttpPost]
+        //[ValidateInput(false)]
+        //public ActionResult Suakhachhang(Khachhang khachhang)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        Query qr = new Query();
+        //        qr.UpdateKhachhang(khachhang);
+        //    }
+        //    return RedirectToAction("TTKhachhang");
+        //}
         //==============================================================================================================================================================================
         public ActionResult Dondathang()
         {
-            return View(data.DonDatHangs.ToList());
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(data.DonDatHangs.ToList());
+            }
         }
         public ActionResult Chitietddh(int id)
         {
+
             DonDatHang hp = data.DonDatHangs.SingleOrDefault(n => n.MaDH == id);
             ViewBag.MaDH = hp.MaDH;
             if (hp == null)
@@ -506,39 +581,69 @@ namespace QLlaptop.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(hp);
-        }
-        [HttpGet]
-        public ActionResult Xoaddh(int id)
-        {
-            DonDatHang hp = data.DonDatHangs.SingleOrDefault(n => n.MaDH == id);
-            ViewBag.MaDH = hp.MaDH;
-            if (hp == null)
+            if (Session["User"] == null)
             {
-                Response.StatusCode = 404;
-                return null;
+                return RedirectToAction("Login", "Admin");
             }
-            return View(hp);
-        }
-        [HttpPost, ActionName("XoaKhachhang")]
-        public ActionResult Xacnhanxoaddh(int id)
-        {
-            DonDatHang hp = data.DonDatHangs.SingleOrDefault(n => n.MaDH == id);
-            ViewBag.MaDH = hp.MaDH;
-            if (hp == null)
+            else
             {
-                Response.StatusCode = 404;
-                return null;
+                return View(hp);
             }
-            data.DonDatHangs.DeleteOnSubmit(hp);
-            data.SubmitChanges();
-            return RedirectToAction("Dondathang");
         }
+        //[HttpGet]
+        //public ActionResult Xoaddh(int id)
+        //{
+        //    DonDatHang hp = data.DonDatHangs.SingleOrDefault(n => n.MaDH == id);
+        //    ViewBag.MaDH = hp.MaDH;
+        //    if (hp == null)
+        //    {
+        //        Response.StatusCode = 404;
+        //        return null;
+        //    }
+        //    if (Session["User"] == null)
+        //    {
+        //        return RedirectToAction("Login", "Admin");
+        //    }
+        //    else
+        //    {
+        //        return View(hp);
+        //    }
+        //}
+
+        //[HttpPost, ActionName("Xoaddh")]
+        //public void Xoacthoadon(int id)
+        //{
+        //    CTDonHang ct = data.CTDonHangs.SingleOrDefault(n => n.MaDH == id);
+        //    data.CTDonHangs.DeleteOnSubmit(ct);
+        //    data.SubmitChanges();
+        //}
+
+        //[HttpPost, ActionName("Xoacthoadon")]
+        //public ActionResult Xacnhanxoaddh(int id)
+        //{
+        //    DonDatHang hp = data.DonDatHangs.SingleOrDefault(n => n.MaDH == id);
+        //    ViewBag.MaDH = hp.MaDH;
+        //    if (hp == null)
+        //    {
+        //        Response.StatusCode = 404;
+        //        return null;
+        //    }
+        //    data.DonDatHangs.DeleteOnSubmit(hp);
+        //    data.SubmitChanges();
+        //    return RedirectToAction("Dondathang");
+        //}
 
         // quản lý liên hệ của admin
         public ActionResult Lienhe()
         {
-            return View(data.LienHes.ToList());
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(data.LienHes.ToList());
+            }
         }
         public ActionResult Chitietlienhe(int id)
         {
@@ -548,7 +653,14 @@ namespace QLlaptop.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(lh);
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(lh);
+            }
         }
 
         [HttpGet]
@@ -560,7 +672,14 @@ namespace QLlaptop.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(lh);
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                return View(lh);
+            }
         }
         [HttpPost, ActionName("Xoalienhe")]
         public ActionResult Xacnhanxoalienhe(int id)
