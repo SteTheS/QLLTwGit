@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Suasanpham</h2>
+<h2>ĐIỀU CHỈNH THÔNG TIN SẢN PHẨM</h2>
 
 @using (Html.BeginForm("Suasanpham", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
@@ -43,7 +43,7 @@
             @Html.LabelFor(model => model.ImageSP, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <input type="file" name="fileupload" />
-
+                <img src="@Url.Content("~/Content/images/All/" + Model.ImageSP)" width="120" />(Ảnh hiện tại)
                 @ViewBag.Thongbao
             </div>
         </div>
@@ -52,7 +52,7 @@
             @Html.LabelFor(model => model.ImageSP_1, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <input type="file" name="fileupload_1" />
-
+                <img src="@Url.Content("~/Content/images/All/" + Model.ImageSP_1)" width="120" />(Ảnh hiện tại)
                 @ViewBag.Thongbao
             </div>
         </div>
@@ -61,7 +61,7 @@
             @Html.LabelFor(model => model.ImageSP_2, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <input type="file" name="fileupload_2" />
-
+                <img src="@Url.Content("~/Content/images/All/" + Model.ImageSP_2)" width="120" />(Ảnh hiện tại)
                 @ViewBag.Thongbao
             </div>
         </div>
@@ -70,7 +70,7 @@
             @Html.LabelFor(model => model.ImageSP_3, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <input type="file" name="fileupload_3" />
-
+                <img src="@Url.Content("~/Content/images/All/" + Model.ImageSP_3)" width="120" />(Ảnh hiện tại)
                 @ViewBag.Thongbao
             </div>
         </div>

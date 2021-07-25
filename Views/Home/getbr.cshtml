@@ -2,8 +2,10 @@
 
 @foreach (var item in Model)
 {
-    <a href="@Url.Action("SPtheothuonghieu","Home", new { id = item.Mathuonghieu})">
-        @item.Tenthuonghieu
-    </a>
+    <div class="spl">
+        <a href="@Url.Action("SPtheothuonghieu","Home", new { id = item.Mathuonghieu})">
+            @item.Tenthuonghieu
+        </a>
+    </div>
 
 }

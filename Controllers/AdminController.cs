@@ -535,5 +535,45 @@ namespace QLlaptop.Controllers
             return RedirectToAction("Dondathang");
         }
 
+        // quản lý liên hệ của admin
+        public ActionResult Lienhe()
+        {
+            return View(data.LienHes.ToList());
+        }
+        public ActionResult Chitietlienhe(int id)
+        {
+            LienHe lh = data.LienHes.SingleOrDefault(n => n.MaLH == id);
+            if (lh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(lh);
+        }
+
+        [HttpGet]
+        public ActionResult Xoalienhe(int id)
+        {
+            LienHe lh = data.LienHes.SingleOrDefault(n => n.MaLH == id);
+            if (lh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(lh);
+        }
+        [HttpPost, ActionName("Xoalienhe")]
+        public ActionResult Xacnhanxoalienhe(int id)
+        {
+            LienHe lh = data.LienHes.SingleOrDefault(n => n.MaLH == id);
+            if (lh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            data.LienHes.DeleteOnSubmit(lh);
+            data.SubmitChanges();
+            return RedirectToAction("Lienhe");
+        }
     }
 }

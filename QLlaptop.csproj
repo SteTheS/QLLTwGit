@@ -489,6 +489,9 @@
     <Content Include="Views\Home\Lienhe.cshtml" />
     <Content Include="Views\Home\Chamsocbanhang.cshtml" />
     <Content Include="Views\Admin\Suasanpham.cshtml" />
+    <Content Include="Views\Admin\Lienhe.cshtml" />
+    <Content Include="Views\Admin\Xoalienhe.cshtml" />
+    <Content Include="Views\Admin\Chitietlienhe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

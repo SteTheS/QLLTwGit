@@ -43,16 +43,6 @@
       <Association Name="Khachhang_DonDatHang" Member="DonDatHangs" ThisKey="MaKH" OtherKey="MaKH" Type="DonDatHang" />
     </Type>
   </Table>
-  <Table Name="dbo.LienHe" Member="LienHes">
-    <Type Name="LienHe">
-      <Column Name="Diachi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Diachibaohanh" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="SDT" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Phananh" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-      <Column Name="Giolamviec" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.LoaiSanPham" Member="LoaiSanPhams">
     <Type Name="LoaiSanPham">
       <Column Name="Maloai" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -115,6 +105,17 @@
       <Association Name="SanPham_CTDonHang" Member="CTDonHangs" ThisKey="MaSP" OtherKey="MaSP" Type="CTDonHang" />
       <Association Name="LoaiSanPham_SanPham" Member="LoaiSanPham" ThisKey="Maloai" OtherKey="Maloai" Type="LoaiSanPham" IsForeignKey="true" />
       <Association Name="ThuongHieu_SanPham" Member="ThuongHieu" ThisKey="Mathuonghieu" OtherKey="Mathuonghieu" Type="ThuongHieu" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LienHe" Member="LienHes">
+    <Type Name="LienHe">
+      <Column Name="MaLH" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Diachibaohanh" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Phananh" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Giolamviec" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

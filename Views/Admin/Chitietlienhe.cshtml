@@ -1,0 +1,66 @@
+﻿@model QLlaptop.Models.LienHe
+
+@{
+    ViewBag.Title = "Chitietlienhe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chitietlienhe</h2>
+
+<div>
+    <h4>LienHe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Diachibaohanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diachibaohanh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diachi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diachi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phananh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phananh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Giolamviec)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Giolamviec)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

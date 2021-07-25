@@ -54,6 +54,9 @@ namespace QLlaptop.Models
     partial void InsertSanPham(SanPham instance);
     partial void UpdateSanPham(SanPham instance);
     partial void DeleteSanPham(SanPham instance);
+    partial void InsertLienHe(LienHe instance);
+    partial void UpdateLienHe(LienHe instance);
+    partial void DeleteLienHe(LienHe instance);
     #endregion
 		
 		public dbQLLTDataContext() : 
@@ -118,14 +121,6 @@ namespace QLlaptop.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<LienHe> LienHes
-		{
-			get
-			{
-				return this.GetTable<LienHe>();
-			}
-		}
-		
 		public System.Data.Linq.Table<LoaiSanPham> LoaiSanPhams
 		{
 			get
@@ -155,6 +150,14 @@ namespace QLlaptop.Models
 			get
 			{
 				return this.GetTable<SanPham>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LienHe> LienHes
+		{
+			get
+			{
+				return this.GetTable<LienHe>();
 			}
 		}
 	}
@@ -1015,123 +1018,6 @@ namespace QLlaptop.Models
 		{
 			this.SendPropertyChanging();
 			entity.Khachhang = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LienHe")]
-	public partial class LienHe
-	{
-		
-		private string _Diachi;
-		
-		private string _Diachibaohanh;
-		
-		private string _SDT;
-		
-		private string _Email;
-		
-		private string _Phananh;
-		
-		private string _Giolamviec;
-		
-		public LienHe()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Diachi", DbType="NVarChar(200)")]
-		public string Diachi
-		{
-			get
-			{
-				return this._Diachi;
-			}
-			set
-			{
-				if ((this._Diachi != value))
-				{
-					this._Diachi = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Diachibaohanh", DbType="NVarChar(200)")]
-		public string Diachibaohanh
-		{
-			get
-			{
-				return this._Diachibaohanh;
-			}
-			set
-			{
-				if ((this._Diachibaohanh != value))
-				{
-					this._Diachibaohanh = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="Char(10)")]
-		public string SDT
-		{
-			get
-			{
-				return this._SDT;
-			}
-			set
-			{
-				if ((this._SDT != value))
-				{
-					this._SDT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phananh", DbType="Char(10)")]
-		public string Phananh
-		{
-			get
-			{
-				return this._Phananh;
-			}
-			set
-			{
-				if ((this._Phananh != value))
-				{
-					this._Phananh = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Giolamviec", DbType="NVarChar(100)")]
-		public string Giolamviec
-		{
-			get
-			{
-				return this._Giolamviec;
-			}
-			set
-			{
-				if ((this._Giolamviec != value))
-				{
-					this._Giolamviec = value;
-				}
-			}
 		}
 	}
 	
@@ -2482,6 +2368,212 @@ namespace QLlaptop.Models
 		{
 			this.SendPropertyChanging();
 			entity.SanPham = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LienHe")]
+	public partial class LienHe : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaLH;
+		
+		private string _Diachibaohanh;
+		
+		private string _Diachi;
+		
+		private string _SDT;
+		
+		private string _Email;
+		
+		private string _Phananh;
+		
+		private string _Giolamviec;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaLHChanging(int value);
+    partial void OnMaLHChanged();
+    partial void OnDiachibaohanhChanging(string value);
+    partial void OnDiachibaohanhChanged();
+    partial void OnDiachiChanging(string value);
+    partial void OnDiachiChanged();
+    partial void OnSDTChanging(string value);
+    partial void OnSDTChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnPhananhChanging(string value);
+    partial void OnPhananhChanged();
+    partial void OnGiolamviecChanging(string value);
+    partial void OnGiolamviecChanged();
+    #endregion
+		
+		public LienHe()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLH", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MaLH
+		{
+			get
+			{
+				return this._MaLH;
+			}
+			set
+			{
+				if ((this._MaLH != value))
+				{
+					this.OnMaLHChanging(value);
+					this.SendPropertyChanging();
+					this._MaLH = value;
+					this.SendPropertyChanged("MaLH");
+					this.OnMaLHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Diachibaohanh", DbType="NVarChar(200)")]
+		public string Diachibaohanh
+		{
+			get
+			{
+				return this._Diachibaohanh;
+			}
+			set
+			{
+				if ((this._Diachibaohanh != value))
+				{
+					this.OnDiachibaohanhChanging(value);
+					this.SendPropertyChanging();
+					this._Diachibaohanh = value;
+					this.SendPropertyChanged("Diachibaohanh");
+					this.OnDiachibaohanhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Diachi", DbType="NVarChar(200)")]
+		public string Diachi
+		{
+			get
+			{
+				return this._Diachi;
+			}
+			set
+			{
+				if ((this._Diachi != value))
+				{
+					this.OnDiachiChanging(value);
+					this.SendPropertyChanging();
+					this._Diachi = value;
+					this.SendPropertyChanged("Diachi");
+					this.OnDiachiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="Char(10)")]
+		public string SDT
+		{
+			get
+			{
+				return this._SDT;
+			}
+			set
+			{
+				if ((this._SDT != value))
+				{
+					this.OnSDTChanging(value);
+					this.SendPropertyChanging();
+					this._SDT = value;
+					this.SendPropertyChanged("SDT");
+					this.OnSDTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phananh", DbType="NVarChar(MAX)")]
+		public string Phananh
+		{
+			get
+			{
+				return this._Phananh;
+			}
+			set
+			{
+				if ((this._Phananh != value))
+				{
+					this.OnPhananhChanging(value);
+					this.SendPropertyChanging();
+					this._Phananh = value;
+					this.SendPropertyChanged("Phananh");
+					this.OnPhananhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Giolamviec", DbType="NVarChar(100)")]
+		public string Giolamviec
+		{
+			get
+			{
+				return this._Giolamviec;
+			}
+			set
+			{
+				if ((this._Giolamviec != value))
+				{
+					this.OnGiolamviecChanging(value);
+					this.SendPropertyChanging();
+					this._Giolamviec = value;
+					this.SendPropertyChanged("Giolamviec");
+					this.OnGiolamviecChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

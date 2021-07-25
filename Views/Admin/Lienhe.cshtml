@@ -1,0 +1,61 @@
+﻿@model IEnumerable<QLlaptop.Models.LienHe>
+
+@{
+    ViewBag.Title = "Lienhe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Liên hệ</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Diachibaohanh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diachi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phananh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Giolamviec)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diachibaohanh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diachi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phananh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Giolamviec)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Chitietlienhe", new { id=item.MaLH }) |
+            @Html.ActionLink("Delete", "Xoalienhe", new { id=item.MaLH })
+        </td>
+    </tr>
+}
+
+</table>
