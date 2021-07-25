@@ -22,7 +22,7 @@
 
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            @*<a href="@Url.Action("Detail", "Home", new { id = sp.MaSP })"><img src="~/Content/images/All/@sp.ImageSP" alt="@sp.TenSP" /></a>*@
+                            <a href="@Url.Action("Detail", "Home", new { id = sp.MaSP })"><img src="~/Content/images/All/@sp.ImageSP" alt="@sp.TenSP" /></a>
                             <h2><a href="@Url.Action("Detail", "Home", new { id = sp.MaSP })">@sp.TenSP</a></h2>
                         </div>
                         <div class="product-carousel-price">
@@ -37,32 +37,6 @@
             }
         </div>
 
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="product-pagination text-center">
-                    <nav>
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 

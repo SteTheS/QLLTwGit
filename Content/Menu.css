@@ -91,28 +91,40 @@
         transition: all 0.3s ease-out 0s;
     }
 
-    .mega-menu-01 {
-        line-height: initial;
-        display: block;
-        position: relative;
-        padding: 30px;
-        border-radius: 0 0 6px 6px;
-        box-shadow: 0 5px 0 0 #cccccc;
-        background-color: #fff;
-        width:130px;
+.mega-menu-01 {
+    line-height: initial;
+    display: inline-block;
+    position: relative;
+    border-radius: 0 0 6px 6px;
+    padding: 0;
+    box-shadow: 0 5px 0 0 #cccccc;
+    background-color: #fff;
+    width: 200px;
+    list-style: unset;
+}
+
+    .mega-menu-01 .split{
+        padding-bottom:10px;
+    }
+    .mega-menu-01 .split > a{
+        width:40px;
     }
 
-        .mega-menu-01 .menu-01 {
-            margin-right: 50px;
-            list-style:none;
-        }
+    .mega-menu-01 .split .spl {
+        padding-bottom: 10px;
+    }
+
+    .mega-menu-01 .menu-01 .menu-01-cate {
+        width: 170px;
+        padding-bottom: 50px;
+    }
 
             .mega-menu-01 .menu-01 .content-col li {
                 margin-top: 16px;
                 padding: 0 0 10px 0;
-                width: 150px;
                 text-align: left;
                 height: auto !important;
+                padding-bottom:10px;
             }
 
                 .mega-menu-01 .menu-01 .content-col li:hover {
@@ -120,7 +132,6 @@
                 }
 
                 .mega-menu-01 .menu-01 .content-col li a {
-                    padding-left: 25px;
                     display: inline-block;
                     position: relative;
                     color: #444;
@@ -157,31 +168,25 @@
                             -o-transition: all 0.2s ease-out 0s;
                             transition: all 0.2s ease-out 0s;
                         }
-
-                    
-
-        .mega-menu-01 .menu-01 .menu-01-cate {
-            width: 170px;
-            float: left;
-        }
-
         .mega-menu-01 img {
             width: 100%;
         }
 
-
+        .mega-menu-01 h3 {
+            font-size:22px;
+        }
 .sub-content {
     line-height: initial;
     display: none;
     position: absolute;
     padding: 30px;
     border-radius: 0 0 6px 6px;
+    box-shadow: 0 5px 0 0 #cccccc;
     background-color: #fff;
-    left: 280px;
-    top:0px;
+    top: 0px;
 }
 
-.menu-01-cate:hover .sub-content{
+.split:hover .sub-content{
     z-index:100;
-    display:block;
+    display: inline-block;
 }

@@ -21,7 +21,7 @@ namespace QLlaptop.Controllers
         //Xuat list loai
         private List<LoaiSanPham> GetLoai()
         {
-            return data.LoaiSanPhams.OrderBy(a => a.Tenloai).ToList();
+            return data.LoaiSanPhams.OrderBy(a => a.Maloai).ToList();
         }
 
         public PartialViewResult getloai()
@@ -31,14 +31,14 @@ namespace QLlaptop.Controllers
         }
         
         //Xuat list Brand
-        private List<ThuongHieu> GetBrand()
+        private List<ThuongHieu> GetBrand(int id)
         {
-            return data.ThuongHieus.OrderBy(a => a.Tenthuonghieu).ToList();
+            return data.ThuongHieus.OrderBy(a => a.Mathuonghieu == id).ToList();
         }
 
-        public PartialViewResult getbr()
+        public PartialViewResult getbr(int id)
         {
-            var br = GetBrand();
+            var br = GetBrand(id);
             return PartialView(br);
         }
 
