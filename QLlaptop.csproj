@@ -211,6 +211,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\images\All\1.PNG" />
     <Content Include="Content\images\All\Acer Aspire 3 A315 56 37DV.png" />
     <Content Include="Content\images\All\Acer Aspire 3 A315 56 37DV_1.png" />
     <Content Include="Content\images\All\Acer Aspire 3 A315 56 37DV_2.png" />
@@ -267,6 +268,7 @@
     <Content Include="Content\images\All\Dell Vostro 15 5502 70231340_1.png" />
     <Content Include="Content\images\All\Dell Vostro 15 5502 70231340_2.png" />
     <Content Include="Content\images\All\Dell Vostro 15 5502 70231340_3.png" />
+    <Content Include="Content\images\All\download.PNG" />
     <Content Include="Content\images\All\Gigabyte AERO 15 OLED XD 73S1624GH.png" />
     <Content Include="Content\images\All\Gigabyte AERO 15 OLED XD 73S1624GH_1.png" />
     <Content Include="Content\images\All\Gigabyte AERO 15 OLED XD 73S1624GH_2.png" />
@@ -279,6 +281,8 @@
     <Content Include="Content\images\All\Gigabyte G5 KC 5S11130SH_1.png" />
     <Content Include="Content\images\All\Gigabyte G5 KC 5S11130SH_2.png" />
     <Content Include="Content\images\All\Gigabyte G5 KC 5S11130SH_3.png" />
+    <Content Include="Content\images\All\images.PNG" />
+    <Content Include="Content\images\All\LC24RG50_1_compressed-1.png" />
     <Content Include="Content\images\All\Lenovo IdeaPad Gaming 3 15ARH05 82EY00JXVN.png" />
     <Content Include="Content\images\All\Lenovo IdeaPad Slim 3 14ITL6 82H7003UVN.png" />
     <Content Include="Content\images\All\Lenovo Legion 5 15ARH05 82B500GUVN.png" />
@@ -477,7 +481,6 @@
     <Content Include="Views\Admin\Dondathang.cshtml" />
     <Content Include="Views\Admin\Chitietddh.cshtml" />
     <Content Include="Views\Admin\Xoaddh.cshtml" />
-    <Content Include="Views\Admin\Suasanpham.cshtml" />
     <Content Include="Views\Admin\Suathuonghieu.cshtml" />
     <Content Include="Views\Admin\Sualoaisanpham.cshtml" />
     <Content Include="Views\Admin\Suakhachhang.cshtml" />
@@ -485,6 +488,7 @@
     <Content Include="Views\Home\Chamsocgiaonhan.cshtml" />
     <Content Include="Views\Home\Lienhe.cshtml" />
     <Content Include="Views\Home\Chamsocbanhang.cshtml" />
+    <Content Include="Views\Admin\Suasanpham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

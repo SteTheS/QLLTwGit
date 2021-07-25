@@ -7,6 +7,8 @@ using QLlaptop.Models;
 using PagedList;
 using PagedList.Mvc;
 using System.IO;
+using System.Net;
+using System.Data.Entity;
 
 namespace QLlaptop.Controllers
 {
@@ -139,8 +141,9 @@ namespace QLlaptop.Controllers
             data.SubmitChanges();
             return RedirectToAction("Sanpham");
         }
+
         [HttpGet]
-        public ActionResult Suasanpham(int id)
+        public ActionResult Suasanpham(int? id)
         {
             SanPham sp = data.SanPhams.SingleOrDefault(n => n.MaSP == id);
             if (sp == null)
@@ -148,13 +151,13 @@ namespace QLlaptop.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            ViewBag.Mathuonghieu = new SelectList(data.ThuongHieus.ToList().OrderBy(n => n.Tenthuonghieu), "Mathuonghieu", "Tenthuonghieu",sp.Mathuonghieu);
-            ViewBag.Maloai = new SelectList(data.LoaiSanPhams.ToList().OrderBy(n => n.Tenloai), "Maloai", "Tenloai",sp.Maloai);
+            ViewBag.Mathuonghieu = new SelectList(data.ThuongHieus.ToList().OrderBy(n => n.Tenthuonghieu), "Mathuonghieu", "Tenthuonghieu", sp.Mathuonghieu);
+            ViewBag.Maloai = new SelectList(data.LoaiSanPhams.ToList().OrderBy(n => n.Tenloai), "Maloai", "Tenloai", sp.Maloai);
             return View(sp);
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Suasanpham(SanPham sp , HttpPostedFileBase fileupload, HttpPostedFileBase fileupload_1, HttpPostedFileBase fileupload_2, HttpPostedFileBase fileupload_3)
+        public ActionResult Suasanpham([Bind(Include = "MaSP, TenSP, Mathuonghieu, Maloai, ImageSP, ImageSP_1, ImageSP_2, ImageSP_3, CPU, RAM, Bonho, GPU, Manhinh, Conggiaotiep, Audio, LAN, WIFI, Bluetooth, Webcam, HDH, Pin, Trongluong, Mausac, Kichthuoc, Soluongton, Giatien, Ngaycapnhat")] SanPham sp, HttpPostedFileBase fileupload, HttpPostedFileBase fileupload_1, HttpPostedFileBase fileupload_2, HttpPostedFileBase fileupload_3)
         {
             ViewBag.Mathuonghieu = new SelectList(data.ThuongHieus.ToList().OrderBy(n => n.Tenthuonghieu), "Mathuonghieu", "Tenthuonghieu");
             ViewBag.Maloai = new SelectList(data.LoaiSanPhams.ToList().OrderBy(n => n.Tenloai), "Maloai", "Tenloai");
@@ -167,7 +170,6 @@ namespace QLlaptop.Controllers
             {
                 if (ModelState.IsValid)
                 {
-
                     var fileName = Path.GetFileName(fileupload.FileName);
                     var path = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName);
                     var fileName_1 = Path.GetFileName(fileupload_1.FileName);
@@ -191,16 +193,79 @@ namespace QLlaptop.Controllers
                     sp.ImageSP_1 = fileName_1;
                     sp.ImageSP_2 = fileName_2;
                     sp.ImageSP_3 = fileName_3;
+                    //data.E(th).State = EntityState.Modified;
                     //UpdateModel(sp);
-                    //data.SubmitChanges();   
+                    //data.SubmitChanges();
                     Query qr = new Query();
                     qr.UpdateSanPham(sp);
+
                 }
                 return RedirectToAction("Sanpham");
             }
             
         }
-//==============================================================================================================================================================================
+        //[HttpGet]
+        //public ActionResult Suasanpham(int id)
+        //{
+        //    SanPham sp = data.SanPhams.SingleOrDefault(n => n.MaSP == id);
+        //    if (sp == null)
+        //    {
+        //        Response.StatusCode = 404;
+        //        return null;
+        //    }
+        //    ViewBag.Mathuonghieu = new SelectList(data.ThuongHieus.ToList().OrderBy(n => n.Tenthuonghieu), "Mathuonghieu", "Tenthuonghieu",sp.Mathuonghieu);
+        //    ViewBag.Maloai = new SelectList(data.LoaiSanPhams.ToList().OrderBy(n => n.Tenloai), "Maloai", "Tenloai",sp.Maloai);
+        //    return View(sp);
+        //}
+        //[HttpPost]
+        //[ValidateInput(false)]
+        //public ActionResult Suasanpham(SanPham sp , HttpPostedFileBase fileupload, HttpPostedFileBase fileupload_1, HttpPostedFileBase fileupload_2, HttpPostedFileBase fileupload_3)
+        //{
+        //    ViewBag.Mathuonghieu = new SelectList(data.ThuongHieus.ToList().OrderBy(n => n.Tenthuonghieu), "Mathuonghieu", "Tenthuonghieu");
+        //    ViewBag.Maloai = new SelectList(data.LoaiSanPhams.ToList().OrderBy(n => n.Tenloai), "Maloai", "Tenloai");
+        //    if (fileupload == null)
+        //    {
+        //        ViewBag.Thongbao = "Vui lòng chọn ảnh bìa";
+        //        return View();
+        //    }
+        //    else
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+
+        //            var fileName = Path.GetFileName(fileupload.FileName);
+        //            var path = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName);
+        //            var fileName_1 = Path.GetFileName(fileupload_1.FileName);
+        //            var path_1 = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName_1);
+        //            var fileName_2 = Path.GetFileName(fileupload_2.FileName);
+        //            var path_2 = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName_2);
+        //            var fileName_3 = Path.GetFileName(fileupload_3.FileName);
+        //            var path_3 = Path.Combine(Server.MapPath("~/Content/images/All/"), fileName_3);
+        //            if (System.IO.File.Exists(path) || System.IO.File.Exists(path_1) || System.IO.File.Exists(path_2) || System.IO.File.Exists(path_3))
+        //            {
+        //                ViewBag.Thongbao = "Hình ảnh đã trùng";
+        //            }
+        //            else
+        //            {
+        //                fileupload.SaveAs(path);
+        //                fileupload_1.SaveAs(path_1);
+        //                fileupload_2.SaveAs(path_2);
+        //                fileupload_3.SaveAs(path_3);
+        //            }
+        //            sp.ImageSP = fileName;
+        //            sp.ImageSP_1 = fileName_1;
+        //            sp.ImageSP_2 = fileName_2;
+        //            sp.ImageSP_3 = fileName_3;
+        //            //UpdateModel(sp);
+        //            //data.SubmitChanges();   
+        //            Query qr = new Query();
+        //            qr.UpdateSanPham(sp);
+        //        }
+        //        return RedirectToAction("Sanpham");
+        //    }
+
+        //}
+        //==============================================================================================================================================================================
         public ActionResult Thuonghieu()
         {
             return View(data.ThuongHieus.ToList());

@@ -171,3 +171,4 @@ E:\Do_an_Web\QLLTwGit\bin\roslyn\vbc.rsp
 E:\Do_an_Web\QLLTwGit\bin\roslyn\VBCSCompiler.exe
 E:\Do_an_Web\QLLTwGit\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\charl\Desktop\Laptop\QLLTwGit\obj\Debug\QLlaptop.csproj.AssemblyReference.cache
+E:\Do_an_Web\QLLTwGit\obj\Debug\QLlaptop.csprojAssemblyReference.cache

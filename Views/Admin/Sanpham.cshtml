@@ -1,6 +1,7 @@
 ﻿@using QLlaptop.Models
 @using PagedList.Mvc;
 @model PagedList.PagedList<QLlaptop.Models.SanPham>
+
 @helper Truncate(string input, int length)
 {
     if (input.Length < length)
@@ -88,7 +89,7 @@
                 @Truncate(item.Bonho, 10)
             </td>
             <td>
-                @Truncate(item.GPU,10)
+                @Truncate(item.GPU, 10)
             </td>
             <td>
                 @Truncate(item.Manhinh, 10)
